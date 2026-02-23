@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalpha.c                                          :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 20:41:30 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/21 20:52:44 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/02/23 15:08:54 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	isalpha(int c)
+static int	ft_islower(int c)
 {
-	return ((c >= 65 && c <= 90) || (c >= 97 && c <= 122));
+	return (c >= 'a' && c <= 'z');
+}
+
+static int	ft_isupper(int c)
+{
+	return (c >= 'A' && c <= 'Z');
+}
+
+int	ft_isalpha(int c)
+{
+	return (ft_islower(c) || ft_isupper(c));
 }
