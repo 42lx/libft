@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:18:10 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/24 11:24:45 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/02/24 13:04:16 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strrchr(const char *s, int c)
 	char	c_cast;
 
 	i = ft_strlen(s);
-	c_cast = (char)c;
+	c_cast = c;
 	while (1)
 	{
 		if (s[i] == c_cast)

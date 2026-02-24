@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 11:28:09 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/24 12:44:05 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/02/24 13:06:25 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -31,7 +31,7 @@ int	ft_atoi(const char *s)
 	if (s[i] == '-' || s[i] == '+')
 	{
 		if (s[i] == '-')
-			sign = -sign;
+			sign = -1;
 		i++;
 	}
 	while (ft_isdigit(s[i]))

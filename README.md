@@ -22,6 +22,7 @@ Use makefile as usual.
 LLMs were used during this project only for these purposes:
 
 * Writing this readme file
+* Style guidelines for more idiomatic code
 
 ---
 

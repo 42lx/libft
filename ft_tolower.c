@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 23:55:52 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/23 23:56:47 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/02/24 13:36:33 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -19,6 +19,6 @@ static int	ft_isupper(int c)
 int	ft_tolower(int c)
 {
 	if (ft_isupper(c))
-		c += ' ';
+		c += 'a' - 'A';
 	return (c);
 }
