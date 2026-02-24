@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 11:28:09 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/24 12:11:14 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/02/24 12:44:05 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -19,9 +19,9 @@ static int	ft_isspace(int c)
 
 int	ft_atoi(const char *s)
 {
-	size_t	i;
-	int		res;
-	int		sign;
+	size_t			i;
+	unsigned int	res;
+	int				sign;
 
 	i = 0;
 	res = 0;
@@ -37,16 +37,24 @@ int	ft_atoi(const char *s)
 	while (ft_isdigit(s[i]))
 	{
 		res = res * 10 + (s[i] - '0');
+		if (res > (unsigned)INT_MAX + (sign < 0))
+			return (0);
 		i++;
 	}
+	if (sign < 0 && res == -(unsigned)INT_MIN)
+		return (INT_MIN);
 	return (res * sign);
 }
 
-
 /*
+#include <stdio.h>
 int	main(void)
 {
 	// Try this with cc -ftrapv
-	printf("%d\n", ft_atoi("-2147483648"));
+	printf("res:%d\n", ft_atoi("-2147483648"));
+	printf("res:%d\n", ft_atoi("-2147483647"));
+	printf("res:%d\n", ft_atoi("2147483647"));
+	printf("res:%d\n", ft_atoi("214748364999999999999999999999"));
+	printf("res:%d\n", ft_atoi("0"));
 }
 */
