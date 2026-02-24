@@ -6,10 +6,9 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:18:10 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/24 13:04:16 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/02/24 14:11:22 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
