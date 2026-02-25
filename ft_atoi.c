@@ -6,15 +6,15 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 11:28:09 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/24 13:06:25 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/02/25 15:13:26 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 static int	ft_isspace(int c)
 {
-	return (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t'
-		|| c == '\v');
+	return (c == ' ' || c == '\f' || c == '\n'
+		|| c == '\r' || c == '\t' || c == '\v');
 }
 
 int	ft_atoi(const char *s)
@@ -37,11 +37,9 @@ int	ft_atoi(const char *s)
 	while (ft_isdigit(s[i]))
 	{
 		res = res * 10 + (s[i] - '0');
-		if (res > (unsigned)INT_MAX + (sign < 0))
-			return (0);
 		i++;
 	}
-	if (sign < 0 && res == -(unsigned)INT_MIN)
+	if (sign < 0 && res == (unsigned)INT_MIN)
 		return (INT_MIN);
 	return (res * sign);
 }
@@ -56,5 +54,8 @@ int	main(void)
 	printf("res:%d\n", ft_atoi("2147483647"));
 	printf("res:%d\n", ft_atoi("214748364999999999999999999999"));
 	printf("res:%d\n", ft_atoi("0"));
+	printf("val:%d\n", INT_MIN);
+	printf("val:%u\n", (unsigned)INT_MIN);
+	printf("val:%u\n", -(unsigned)INT_MIN);
 }
 */
