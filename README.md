@@ -20,7 +20,7 @@ Use `make` commands as usual (`all`, `clean`, `fclean`, `re`).
 2. (Optional) Add `-Ilibft` to your `compile_flags.txt` to ensure clangd runs correctly.
 3. In the C files that use the library, add `#include <libft.h>` at the top.
 5. Run `make -C libft` to build the library.
-6. Compile your programs with `cc your_prg.c -Ilibft -Llibft -lft` to include the header and link the static library from the `libft/`.
+6. Build your programs with `cc your_prg.c -Ilibft -Llibft -lft` to include the header and link the static library from the `libft/`.
 
 ## Resources
 
