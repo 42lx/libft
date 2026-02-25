@@ -17,7 +17,7 @@ Use `make` commands as usual (`all`, `clean`, `fclean`, `re`).
 
 ### Use in a project
 1. Clone the repository into your project root.
-2. Run `make -C libft/` to build the library.
+2. Run `make -C libft` to build the library.
 3. Compile your program with `cc your_file.c -Ilibft -Llibft -lft` to include the header and link the static library from the `libft/`.
 
 ## Resources
