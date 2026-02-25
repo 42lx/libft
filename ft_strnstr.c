@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 11:13:00 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/24 18:12:02 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/02/25 15:28:33 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -22,7 +22,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 	while (i < n && s1[i])
 	{
 		j = 0;
-		while (i + j < n && s1[i + j] == s2[j])
+		while (i + j < n && s2[j] && s1[i + j] == s2[j])
 			j++;
 		if (s2[j] == '\0')
 			return ((char *)&s1[i]);
