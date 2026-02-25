@@ -6,12 +6,12 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 17:33:38 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/24 17:46:48 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/02/25 11:34:55 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	size_t	i;
 	char	*s2;
