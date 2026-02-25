@@ -1,6 +1,5 @@
 NAME = libft.a
-SRCS = ft_*.c \
-	   ft_isalpha.c \
+SRCS = ft_isalpha.c \
 	   ft_isdigit.c \
 	   ft_isalnum.c \
 	   ft_isascii.c \
@@ -22,7 +21,8 @@ SRCS = ft_*.c \
 	   ft_strnstr.c \
 	   ft_atoi.c \
 	   ft_calloc.c \
-	   ft_strdup.c
+	   ft_strdup.c \
+	   ft_substr.c
 # BONUS_SRCS =
 OBJ = $(SRCS:.c=.o)
 # BONUS_OBJ = $(BONUS_SRCS:.c=.o)
