@@ -16,15 +16,9 @@
 Use `make` commands as usual (`all`, `clean`, `fclean`, `re`).
 
 ### Use in a project
-```sh
-cc -Wall -Wextra -Werror your_file.c -L. -lft
-```
-Make sure `libft.a` is in the same directory or adjust `-L` accordingly.
-
-Include the header:
-```c
-#include "libft.h"
-```
+1. Clone the repository into your project root.
+2. Run `make -C libft/` to build the library.
+3. Compile your program with `cc your_file.c -Ilibft -Llibft -lft` to include the header and link the static library from the `libft/`.
 
 ## Resources
 
