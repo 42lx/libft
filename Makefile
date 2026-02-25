@@ -25,9 +25,7 @@ SRCS = ft_isalpha.c \
 	   ft_substr.c \
 	   ft_strjoin.c \
 	   ft_strtrim.c
-# BONUS_SRCS =
 OBJ = $(SRCS:.c=.o)
-# BONUS_OBJ = $(BONUS_SRCS:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
