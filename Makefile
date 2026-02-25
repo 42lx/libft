@@ -23,7 +23,8 @@ SRCS = ft_isalpha.c \
 	   ft_calloc.c \
 	   ft_strdup.c \
 	   ft_substr.c \
-	   ft_strjoin.c
+	   ft_strjoin.c \
+	   ft_strtrim.c
 # BONUS_SRCS =
 OBJ = $(SRCS:.c=.o)
 # BONUS_OBJ = $(BONUS_SRCS:.c=.o)
