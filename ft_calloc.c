@@ -6,12 +6,12 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 14:23:02 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/24 18:10:59 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/02/28 11:09:42 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static int	mult_overflow(size_t a, size_t b)
+static int	ft_mult_overflow(size_t a, size_t b)
 {
 	if (b == 0)
 		return (0);
@@ -22,7 +22,7 @@ void	*ft_calloc(size_t n, size_t size)
 {
 	void	*ptr;
 
-	if (mult_overflow(n, size))
+	if (ft_mult_overflow(n, size))
 		return (NULL);
 	if (n == 0 || size == 0)
 		return (malloc(0));
