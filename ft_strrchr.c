@@ -6,25 +6,25 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:18:10 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/24 14:11:22 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/02/28 20:29:21 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
-	char	c_cast;
+	const char	*p;
 
-	i = ft_strlen(s);
-	c_cast = c;
+	p = s;
+	while (*s)
+		s++;
 	while (1)
 	{
-		if (s[i] == c_cast)
-			return ((char *)&s[i]);
-		if (i == 0)
+		if (*s == (unsigned char)c)
+			return ((char *)s);
+		if (p == s)
 			break ;
-		i--;
+		s--;
 	}
 	return (NULL);
 }

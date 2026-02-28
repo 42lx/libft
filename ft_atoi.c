@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 11:28:09 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/25 15:13:26 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/02/28 21:24:04 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -19,25 +19,23 @@ static int	ft_isspace(int c)
 
 int	ft_atoi(const char *s)
 {
-	size_t			i;
 	unsigned int	res;
 	int				sign;
 
-	i = 0;
 	res = 0;
 	sign = 1;
-	while (ft_isspace(s[i]))
-		i++;
-	if (s[i] == '-' || s[i] == '+')
+	while (ft_isspace(*s))
+		s++;
+	if (*s == '-' || *s == '+')
 	{
-		if (s[i] == '-')
+		if (*s == '-')
 			sign = -1;
-		i++;
+		s++;
 	}
-	while (ft_isdigit(s[i]))
+	while (ft_isdigit(*s))
 	{
-		res = res * 10 + (s[i] - '0');
-		i++;
+		res = res * 10 + (*s - '0');
+		s++;
 	}
 	if (sign < 0 && res == (unsigned)INT_MIN)
 		return (INT_MIN);
