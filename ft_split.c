@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 10:54:13 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/28 12:50:33 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/02/28 13:19:45 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -37,7 +37,7 @@ static int	ft_count_words(const char *s, char c)
 	return (count);
 }
 
-void	*ft_free_array(void **arr)
+static void	*ft_free_array(void **arr)
 {
 	size_t	i;
 
@@ -48,12 +48,12 @@ void	*ft_free_array(void **arr)
 	return (NULL);
 }
 
-char	**ft_split_populate(const char *s, char c, char **res, size_t len)
+static char	**ft_split_populate(const char *s, char c, char **res, size_t len)
 {
 	size_t	i;
 	size_t	j;
 	size_t	j_beg;
-	size_t	k;
+	size_t	str_len;
 
 	i = 0;
 	j = 0;
@@ -64,13 +64,12 @@ char	**ft_split_populate(const char *s, char c, char **res, size_t len)
 		j_beg = j;
 		while (s[j] && s[j] != c)
 			j++;
-		res[i] = malloc(j - j_beg + 2);
+		str_len = j - j_beg;
+		res[i] = malloc(str_len + 1);
 		if (!res[i])
 			return (ft_free_array((void **)res));
-		k = -1;
-		while (j_beg + (++k) < j)
-			res[i][k] = s[j_beg + k];
-		res[i][k] = '\0';
+		ft_memcpy(res[i], s + j_beg, str_len);
+		res[i][str_len] = '\0';
 		i++;
 	}
 	return (res);
