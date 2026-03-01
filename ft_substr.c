@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 22:49:34 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/25 15:34:30 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/01 10:58:52 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -25,5 +25,6 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	if (!sub)
 		return (NULL);
 	ft_memcpy(sub, s + start, len);
+	sub[len] = '\0';
 	return (sub);
 }
