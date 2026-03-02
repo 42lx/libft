@@ -6,21 +6,47 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:23:45 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/28 20:34:07 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/02 15:15:38 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (n == 0)
-		return (0);
+	unsigned char	uc1;
+	unsigned char	uc2;
+
 	while (n-- && (*s1 || *s2))
 	{
-		if (*s1 != *s2)
-			return ((unsigned)*s1 - (unsigned)*s2);
-		s1++;
-		s2++;
+		uc1 = *s1++;
+		uc2 = *s2++;
+		if (uc1 != uc2)
+			return (uc1 - uc2);
 	}
 	return (0);
 }
+
+/*
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	char	*str;
+	char	*cmp;
+	int		len;
+
+	str = "libft-test";
+	len = strlen(str);
+	cmp = calloc(10, 1);
+	strlcpy(cmp, "libft", 10);
+	printf("str:\"%s\"; std:%d; ft:%d\n", cmp, strncmp(str, cmp, len),
+		ft_strncmp(str, cmp, len));
+	cmp[5] = CHAR_MIN;
+	printf("str:\"%s\"; std:%d; ft:%d\n", cmp, strncmp(str, cmp, len),
+		ft_strncmp(str, cmp, len));
+	cmp[5] = -42;
+	printf("str:\"%s\"; std:%d; ft:%d\n", cmp, strncmp(str, cmp, len),
+		ft_strncmp(str, cmp, len));
+}
+*/
