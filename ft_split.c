@@ -6,71 +6,62 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 10:54:13 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/28 13:19:45 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/02 00:22:55 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 static int	ft_count_words(const char *s, char c)
 {
-	size_t	i;
 	size_t	count;
 	int		in_word;
 
-	i = 0;
 	count = 0;
 	in_word = 0;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] == c)
+		if (*s++ != c)
 		{
-			if (in_word)
+			if (in_word == 0)
 				count++;
-			in_word = 0;
+			in_word = 1;
 		}
 		else
-			in_word = 1;
-		i++;
+			in_word = 0;
 	}
-	if (in_word)
-		count++;
 	return (count);
 }
 
 static void	*ft_free_array(void **arr)
 {
-	size_t	i;
+	void	**p;
 
-	i = 0;
-	while (arr[i])
-		free(arr[i++]);
+	p = arr;
+	while (*p)
+		free(*p++);
 	free(arr);
 	return (NULL);
 }
 
-static char	**ft_split_populate(const char *s, char c, char **res, size_t len)
+static char	**ft_split_populate(char **res, const char *s, char c)
 {
-	size_t	i;
-	size_t	j;
-	size_t	j_beg;
-	size_t	str_len;
+	char		**p;
+	const char	*word;
 
-	i = 0;
-	j = 0;
-	while (i < len)
+	p = res;
+	while (*s)
 	{
-		while (s[j] == c)
-			j++;
-		j_beg = j;
-		while (s[j] && s[j] != c)
-			j++;
-		str_len = j - j_beg;
-		res[i] = malloc(str_len + 1);
-		if (!res[i])
+		while (*s == c)
+			s++;
+		if (*s == '\0')
+			break ;
+		word = s;
+		while (*s && *s != c)
+			s++;
+		*p = ft_substr(word, 0, s - word);
+		if (!*p)
 			return (ft_free_array((void **)res));
-		ft_memcpy(res[i], s + j_beg, str_len);
-		res[i][str_len] = '\0';
-		i++;
+		p++;
 	}
 	return (res);
 }
@@ -78,13 +69,11 @@ static char	**ft_split_populate(const char *s, char c, char **res, size_t len)
 char	**ft_split(const char *s, char c)
 {
 	char	**res;
-	size_t	len;
 
-	len = ft_count_words(s, c);
-	res = ft_calloc(len + 1, sizeof(char *));
+	res = ft_calloc(ft_count_words(s, c) + 1, sizeof(char *));
 	if (!res)
 		return (NULL);
-	return (ft_split_populate(s, c, res, len));
+	return (ft_split_populate(res, s, c));
 }
 
 /*
@@ -99,7 +88,7 @@ int	main(void)
 	splitme = "--1-2--3---4----5-----42";
 	tab = ft_split(splitme, '-');
 	i = 0;
-	while (tab[i])
-		printf("%s$\n", tab[i++]);
+	while (*tab)
+		printf("%s$\n", *tab++);
 }
 */

@@ -6,23 +6,23 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 12:55:39 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/28 11:24:31 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/01 20:56:32 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 char	*ft_strtrim(const char *s, const char *set)
 {
-	size_t	start;
-	size_t	end;
+	const char	*p1;
+	const char	*p2;
 
-	start = 0;
-	while (s[start] && ft_strchr(set, s[start]))
-		start++;
-	end = ft_strlen(s);
-	while (end > start && ft_strchr(set, s[end]))
-		end--;
-	return (ft_substr(s, start, end - start + 1));
+	p1 = s;
+	while (*p1 && ft_strchr(set, *p1))
+		p1++;
+	p2 = s + ft_strlen(s);
+	while (p2 > p1 && ft_strchr(set, *p2))
+		p2--;
+	return (ft_substr(p1, 0, p2 - p1 + 1));
 }
 
 /*

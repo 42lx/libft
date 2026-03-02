@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 13:22:06 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/28 15:08:39 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/01 12:54:30 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -32,11 +32,11 @@ static size_t	ft_intlen(int n)
 	return (len);
 }
 
-static void	ft_itoa_rec(int n, char *res, size_t len, size_t i)
+static void	ft_itoa_rec(int n, char *end)
 {
 	if (n > 9)
-		ft_itoa_rec(n / 10, res, len, i + 1);
-	res[(len - 1) - i] = n % 10 + '0';
+		ft_itoa_rec(n / 10, end - 1);
+	*end = n % 10 + '0';
 }
 
 char	*ft_itoa(int n)
@@ -50,14 +50,11 @@ char	*ft_itoa(int n)
 	res = malloc(len + 1);
 	if (!res)
 		return (NULL);
-	if (n >= 0)
-		ft_itoa_rec(n, res, len, 0);
-	else
-	{
-		res[0] = '-';
-		ft_itoa_rec(-n, res + 1, len - 1, 0);
-	}
-	res[len] = '\0';
+	if (n < 0)
+		*res = '-';
+	n = ft_abs(n);
+	ft_itoa_rec(n, res + len - 1);
+	*(res + len) = '\0';
 	return (res);
 }
 /*
