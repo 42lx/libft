@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 10:54:13 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/02 00:22:55 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/02 00:49:15 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -14,20 +14,20 @@
 static int	ft_count_words(const char *s, char c)
 {
 	size_t	count;
-	int		in_word;
+	int		isword;
 
 	count = 0;
-	in_word = 0;
+	isword = 0;
 	while (*s)
 	{
 		if (*s++ != c)
 		{
-			if (in_word == 0)
+			if (isword == 0)
 				count++;
-			in_word = 1;
+			isword = 1;
 		}
 		else
-			in_word = 0;
+			isword = 0;
 	}
 	return (count);
 }
