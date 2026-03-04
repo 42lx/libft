@@ -46,18 +46,18 @@ SRCS		= ft_isalpha.c \
 			  ft_lstclear.c \
 			  ft_lstiter.c \
 			  ft_lstmap.c
-OBJ			= $(SRCS:.c=.o)
+OBJS		= $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
