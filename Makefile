@@ -1,4 +1,8 @@
 NAME = libft.a
+
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+
 SRCS = ft_isalpha.c \
 	   ft_isdigit.c \
 	   ft_isalnum.c \
@@ -43,8 +47,6 @@ SRCS = ft_isalpha.c \
 	   ft_lstiter.c \
 	   ft_lstmap.c
 OBJ = $(SRCS:.c=.o)
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
