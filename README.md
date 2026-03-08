@@ -3,7 +3,7 @@
 ## Description
 **Libft** is a custom C library that reimplements several standard libc functions and includes additional utility functions for working with strings, files, and linked lists. The output is a static library `libft.a` that can be linked into other C projects.
 
-### Notable functions
+### Notable Functions
 
 * `ft_atoi`. `unsigned int` is used to prevent integer overflow in case of `INT_MIN`. It doesn't normally cause errors since most compilers wrap around value (e.g. `INT_MAX + 1` becomes `INT_MIN` which is exactly what we want in this case), but officially integer overflow is UB and we cannot depend on wraparound (read [here](https://www.airs.com/blog/archives/120) why). Compile with `-ftrapv` to check for overflows.
 * `ft_strlcat`. Instead of just calculating `dlen = ft_strlen(dst)`, we have a custom function `strnlen` which will calculate length or stop upon traversing `dstsize` bytes. While not required, this is done since the whole idea behind `strlcat` returning `dstsize + ft_strlen(src)` in this case is so that we don't run off the end of `dst` (read [here](https://linux.die.net/man/3/strlcat)).
@@ -15,7 +15,7 @@
 ### Makefile
 Use `make` commands as usual (`all`, `clean`, `fclean`, `re`).
 
-### Use in a project
+### Use in a Project
 1. Clone the repository into your project root.
 2. (Optional) Add `-Ilibft` to your `compile_flags.txt` to ensure clangd runs correctly.
 3. In the C files that use the library, add `#include <libft.h>` at the top.
