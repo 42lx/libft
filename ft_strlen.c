@@ -6,17 +6,15 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 16:43:25 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/02/28 19:37:45 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/11 17:04:40 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
-	const char	*p;
+	char	*p;
 
-	p = s;
-	while (*p)
-		p++;
+	p = ft_strchr(s, '\0');
 	return (p - s);
 }
