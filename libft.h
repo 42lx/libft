@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:29:46 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/02 10:10:21 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/13 21:37:16 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -14,6 +14,7 @@
 
 # include <limits.h>
 # include <stddef.h>
+# include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
 
