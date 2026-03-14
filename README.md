@@ -9,6 +9,7 @@
 * `ft_strlcat`. Instead of just calculating `dlen = ft_strlen(dst)`, we have a custom function `strnlen` which will calculate length or stop upon traversing `dstsize` bytes. While not required, this is done since the whole idea behind `strlcat` returning `dstsize + ft_strlen(src)` in this case is so that we don't run off the end of `dst` (read [here](https://linux.die.net/man/3/strlcat)).
 * `ft_strrchr`. We have a `while (1)` loop with a `break` inside since otherwise, `size_t i` would underflow and cause infinite loop. `ft_strchr` also has a `while (1)` loop as it allows for a more concise style since we need to check for value of `\0` as well.
 * `ft_strtrim`. We set `end = ft_strlen(s1)` instead of `end = ft_strlen(s1) - 1` to prevent underflow in case `ft_strlen(s1)` returns 0. It's not required to subtract 1, since `ft_strchr(str, '\0')` is always true, so we'll just iterate past it.
+* `ft_strjoin`. We copy `len2 + 1` to include `\0` from `s2`.
 
 ## Instructions
 

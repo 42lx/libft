@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:43:40 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/02 00:47:27 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/14 16:39:31 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -14,13 +14,15 @@
 char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*res;
-	size_t	ressize;
+	size_t	len1;
+	size_t	len2;
 
-	ressize = ft_strlen(s1) + ft_strlen(s2) + 1;
-	res = malloc(ressize);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	res = malloc(len1 + len2 + 1);
 	if (!res)
 		return (NULL);
-	ft_strlcpy(res, s1, ressize);
-	ft_strlcat(res, s2, ressize);
+	ft_memcpy(res, s1, len1);
+	ft_memcpy(res + len1, s2, len2 + 1);
 	return (res);
 }
