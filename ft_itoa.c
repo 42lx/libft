@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 13:22:06 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/15 16:26:13 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/15 16:29:48 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,7 +18,7 @@ static int	ft_abs(int n)
 	return (n);
 }
 
-static size_t	ft_intlen(int n)
+static size_t	ft_ilen(int n)
 {
 	size_t	len;
 
@@ -47,7 +47,7 @@ char	*ft_itoa(int n)
 
 	if (n == INT_MIN)
 		return (ft_strdup("-2147483648"));
-	len = ft_intlen(n);
+	len = ft_ilen(n);
 	res = malloc(len + 1);
 	if (!res)
 		return (NULL);
@@ -67,16 +67,16 @@ int	main(void)
 	int	i;
 
 	i = 0;
-	printf("#%zu: %d\n", ft_intlen(i), i);
+	printf("#%zu: %d\n", ft_ilen(i), i);
 	i = INT_MIN;
-	printf("#%zu: %d\n", ft_intlen(i), i);
+	printf("#%zu: %d\n", ft_ilen(i), i);
 	i = INT_MAX;
-	printf("#%zu: %d\n", ft_intlen(i), i);
+	printf("#%zu: %d\n", ft_ilen(i), i);
 	i = 12345;
-	printf("#%zu: %d\n", ft_intlen(i), i);
+	printf("#%zu: %d\n", ft_ilen(i), i);
 	i = -12345;
-	printf("#%zu: %d\n", ft_intlen(i), i);
+	printf("#%zu: %d\n", ft_ilen(i), i);
 	i = 5;
-	printf("#%zu: %d\n", ft_intlen(i), i);
+	printf("#%zu: %d\n", ft_ilen(i), i);
 }
 */
