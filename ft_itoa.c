@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 13:22:06 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/02 01:06:24 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/15 13:45:57 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -24,7 +24,7 @@ static size_t	ft_intlen(int n)
 
 	len = 1 + (n < 0);
 	n = ft_abs(n);
-	while (n > 9)
+	while (n >= 10)
 	{
 		n /= 10;
 		len++;
@@ -34,7 +34,7 @@ static size_t	ft_intlen(int n)
 
 static void	ft_itoa_rec(int n, char *end)
 {
-	if (n > 9)
+	if (n >= 10)
 		ft_itoa_rec(n / 10, end - 1);
 	*end = n % 10 + '0';
 }

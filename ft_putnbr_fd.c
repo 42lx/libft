@@ -6,14 +6,14 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 15:32:01 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/01 12:27:03 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/15 13:46:17 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 static void	ft_putnbr_fd_rec(int n, int fd)
 {
-	if (n > 9)
+	if (n >= 10)
 		ft_putnbr_fd_rec(n / 10, fd);
 	ft_putchar_fd(n % 10 + '0', fd);
 }
