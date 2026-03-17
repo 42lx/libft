@@ -1,36 +1,46 @@
 *This project has been created as part of the 42 curriculum by ohaponiu.*
 
 ## Description
-**Libft** is a custom C library that reimplements several standard libc functions and includes additional utility functions for working with strings, files, and linked lists. The output is a static library `libft.a` that can be linked into other C projects.
+Libft is a custom C library that reimplements several standard libc functions and includes additional utility functions for working with strings, files, and linked lists. The output is a static library `libft.a` that can be linked into other C projects.
 
 ### Notable Functions
 
-* `ft_atoi`. `unsigned int` is used to prevent integer overflow in case of `INT_MIN`. It doesn't normally cause errors since most compilers wrap around value (e.g. `INT_MAX + 1` becomes `INT_MIN` which is exactly what we want in this case), but officially integer overflow is UB and we cannot depend on wraparound (read [here](https://www.airs.com/blog/archives/120) why). Compile with `-ftrapv` to check for overflows.
-* `ft_strlcat`. Instead of just calculating `dlen = ft_strlen(dst)`, we have a custom function `strnlen` which will calculate length or stop upon traversing `dstsize` bytes. While not required, this is done since the whole idea behind `strlcat` returning `dstsize + ft_strlen(src)` in this case is so that we don't run off the end of `dst` (read [here](https://linux.die.net/man/3/strlcat)). Also, in the while loop, we compare against `dlen + 1` (not just `dlen`) to have space for `\0` at the end.
-* `ft_strrchr`. We have a `while (1)` loop with a `break` inside since otherwise, `size_t i` would underflow and cause infinite loop. `ft_strchr` also has a `while (1)` loop as it allows for a more concise style since we need to check for value of `\0` as well.
-* `ft_strtrim`. We set `end = ft_strlen(s1)` instead of `end = ft_strlen(s1) - 1` to prevent underflow in case `ft_strlen(s1)` returns 0. It's not required to subtract 1, since `ft_strchr(str, '\0')` is always true, so we'll just iterate past it. Also, in case we give an empty string, we will call `ft_substr` with `len > slen` (1 > 0) so it'll just return `""` (otherwise we might've had a problem of returning `"\0\0"` instead of `"\0"` in this case).
-* `ft_strjoin`. We copy `len2 + 1` to include `\0` from `s2`.
-* Linked lists. We never check `if (!lst)` but sometimes check `if (!*lst)`, why? That's because `lst = NULL` is invalid use of the function. Same way none of the libc functions do NULL checks on arguments, because it's responsibility of the caller to not provide invalid values. At the same time, `*lst = NULL` is a valid case of an empty linked list which needs to be checked for.
-* `ft_lstmap`. We use one extra var to store content in case `f` uses `malloc` (then `del` should `free` it).
+#### ft_atoi
+`unsigned int` is used to avoid integer overflow in case of `INT_MIN`. It doesn't normally cause errors since most compilers wrap around value (e.g. `INT_MAX + 1` becomes `INT_MIN` which is exactly the behavior needed), but integer overflow is officially UB, so wraparound cannot be depended on (read [here](https://www.airs.com/blog/archives/120) why). Compile with `-ftrapv` to check for overflows.
+#### ft_strlcat
+`dst` length is computed with a custom `ft_strnlen` that stops at `dstsize` bytes rather than walking the full string. This mirrors the intent of `strlcat` itself. If `dst` is already longer than `dstsize`, the function should return `dstsize + ft_strlen(src)` without reading past the buffer (read [here](https://linux.die.net/man/3/strlcat) more).  The loop also compares against `dlen + 1` rather than `dlen` to always reserve one byte for the null terminator.
+#### ft_strtrim
+`p2` is initialized to the null terminator via `ft_strchr(s, '\0')` instead of end of the string (one before `\0`). This is because subtracting 1 would cause undefined behavior on an empty string. The pre-decrement isn't needed anyway since `ft_strchr(set, '\0')` is always true, so the loop skips past it. In the empty string case, `ft_substr` receives `len = 1` where `slen = 0`, but its bounds check handles this gracefully and returns `""`.
+#### ft_strjoin
+`ft_memcpy` is called with `len2 + 1` for the second string to carry over its null terminator, avoiding a separate null-termination step.
+#### ft_lst*
+No check for `if (!lst)`, but `if (!*lst)` is checked sometimes. Why? That's because `lst = NULL` is invalid use of the function. Same way none of the libc functions do `NULL` checks on arguments, because it's responsibility of the caller to not provide invalid values. At the same time, `*lst = NULL` is a valid case of an empty linked list which the functions need to handle.
+#### ft_lstmap
+A temporary variable is used to store `content` in case `f` uses `malloc` (then `del` should `free` it).
 
 ## Instructions
 
 ### Makefile
-Use `make` commands as usual (`all`, `clean`, `fclean`, `re`).
+Command | Description
+--|--
+`make`, `make all` | build library
+`make clean` |  remove object files
+`make fclean` | remove object files and static library
+`make re` | run `fclean` then `all`
 
 ### Use in a Project
 1. Clone the repository into your project root.
-2. (Optional) Add `-Ilibft` to your `compile_flags.txt` to ensure clangd runs correctly.
-3. In the C files that use the library, add `#include <libft.h>` at the top.
-5. Run `make -C libft` to build the library.
-6. Build your programs with `cc your_prg.c -Ilibft -Llibft -lft` to include the header and link the static library from the `libft/`.
+2. In the C files that use the library, add `#include "libft.h"`.
+3. Run `make -C libft` to build.
+4. Compile with `cc your_prg.c -Ilibft -Llibft -lft`.
+
+> **clangd:** add `-Ilibft` to `compile_flags.txt` so the LSP can resolve the header.
 
 ## Resources
 
 ### References
 
-* `man` pages for libc.
-* Piscine projects.
+* `man` pages.
 * Peer discussions.
 
 ### AI Usage Disclosure
@@ -38,3 +48,4 @@ Use `make` commands as usual (`all`, `clean`, `fclean`, `re`).
 LLMs were used during this project for the following purposes:
 
 * Style guidelines for more idiomatic code.
+* Parts of this readme.
