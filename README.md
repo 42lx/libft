@@ -10,6 +10,8 @@
 * `ft_strrchr`. We have a `while (1)` loop with a `break` inside since otherwise, `size_t i` would underflow and cause infinite loop. `ft_strchr` also has a `while (1)` loop as it allows for a more concise style since we need to check for value of `\0` as well.
 * `ft_strtrim`. We set `end = ft_strlen(s1)` instead of `end = ft_strlen(s1) - 1` to prevent underflow in case `ft_strlen(s1)` returns 0. It's not required to subtract 1, since `ft_strchr(str, '\0')` is always true, so we'll just iterate past it. Also, in case we give an empty string, we will call `ft_substr` with `len > slen` (1 > 0) so it'll just return `""` (otherwise we might've had a problem of returning `"\0\0"` instead of `"\0"` in this case).
 * `ft_strjoin`. We copy `len2 + 1` to include `\0` from `s2`.
+* Linked lists. We never check `if (!lst)` but sometimes check `if (!*lst)`, why? That's because `lst = NULL` is invalid use of the function. Same way none of the libc functions do NULL checks on arguments, because it's responsibility of the caller to not provide invalid values. At the same time, `*lst = NULL` is a valid case of an empty linked list which needs to be checked for.
+* `ft_lstmap`. We use one extra var to store content in case `f` uses `malloc` (then `del` should `free` it).
 
 ## Instructions
 
