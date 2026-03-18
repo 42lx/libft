@@ -6,26 +6,26 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 10:54:13 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/15 14:30:22 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/18 03:24:22 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 static int	ft_count_words(const char *s, char c)
 {
-	size_t	count;
+	size_t	n;
 
-	count = 0;
+	n = 0;
 	while (*s)
 	{
 		while (*s == c)
 			s++;
 		if (*s)
-			count++;
+			n++;
 		while (*s && *s != c)
 			s++;
 	}
-	return (count);
+	return (n);
 }
 
 static void	*ft_free_array(void **arr)
@@ -41,13 +41,13 @@ static void	*ft_free_array(void **arr)
 
 static char	**ft_split_populate(char **res, const char *s, char c)
 {
-	char		**p;
 	const char	*start;
+	char		**p;
 
 	p = res;
-	while (*s)
+	while (1)
 	{
-		while (*s == c)
+		while (*s && *s == c)
 			s++;
 		if (!*s)
 			break ;
