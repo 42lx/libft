@@ -6,25 +6,17 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 13:22:06 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/15 16:29:48 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/18 03:58:55 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static int	ft_abs(int n)
-{
-	if (n < 0)
-		n = -n;
-	return (n);
-}
-
-static size_t	ft_ilen(int n)
+static size_t	ft_ndigits(int n)
 {
 	size_t	len;
 
-	len = 1 + (n < 0);
-	n = ft_abs(n);
-	while (n >= 10)
+	len = (n <= 0);
+	while (n)
 	{
 		n /= 10;
 		len++;
@@ -32,30 +24,31 @@ static size_t	ft_ilen(int n)
 	return (len);
 }
 
-static void	ft_itoa_rec(int n, char *end)
+static void	ft_itoa_rec(long ln, char *end)
 {
-	if (n >= 10)
-		ft_itoa_rec(n / 10, end - 1);
-	*end = n % 10 + '0';
+	if (ln >= 10)
+		ft_itoa_rec(ln / 10, end - 1);
+	*end = ln % 10 + '0';
 }
 
 char	*ft_itoa(int n)
 {
+	size_t	len;
 	char	*res;
 	char	*p;
-	size_t	len;
 
-	if (n == INT_MIN)
-		return (ft_strdup("-2147483648"));
-	len = ft_ilen(n);
+	len = ft_ndigits(n);
 	res = malloc(len + 1);
 	if (!res)
 		return (NULL);
-	if (n < 0)
-		*res = '-';
-	n = ft_abs(n);
 	p = res + len;
-	ft_itoa_rec(n, p - 1);
+	if (n < 0)
+	{
+		*res = '-';
+		ft_itoa_rec(-(long)n, p - 1);
+	}
+	else
+		ft_itoa_rec((long)n, p - 1);
 	*p = '\0';
 	return (res);
 }
@@ -67,16 +60,16 @@ int	main(void)
 	int	i;
 
 	i = 0;
-	printf("#%zu: %d\n", ft_ilen(i), i);
+	printf("#%zu: %d\n", ft_ndigits(i), i);
 	i = INT_MIN;
-	printf("#%zu: %d\n", ft_ilen(i), i);
+	printf("#%zu: %d\n", ft_ndigits(i), i);
 	i = INT_MAX;
-	printf("#%zu: %d\n", ft_ilen(i), i);
+	printf("#%zu: %d\n", ft_ndigits(i), i);
 	i = 12345;
-	printf("#%zu: %d\n", ft_ilen(i), i);
+	printf("#%zu: %d\n", ft_ndigits(i), i);
 	i = -12345;
-	printf("#%zu: %d\n", ft_ilen(i), i);
+	printf("#%zu: %d\n", ft_ndigits(i), i);
 	i = 5;
-	printf("#%zu: %d\n", ft_ilen(i), i);
+	printf("#%zu: %d\n", ft_ndigits(i), i);
 }
 */

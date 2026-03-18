@@ -6,29 +6,25 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 15:32:01 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/15 13:46:17 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/18 04:00:28 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static void	ft_putnbr_fd_rec(int n, int fd)
+static void	ft_putnbr_fd_rec(long ln, int fd)
 {
-	if (n >= 10)
-		ft_putnbr_fd_rec(n / 10, fd);
-	ft_putchar_fd(n % 10 + '0', fd);
+	if (ln >= 10)
+		ft_putnbr_fd_rec(ln / 10, fd);
+	ft_putchar_fd(ln % 10 + '0', fd);
 }
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == INT_MIN)
-	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
-	}
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		n = -n;
+		ft_putnbr_fd_rec(-(long)n, fd);
 	}
-	ft_putnbr_fd_rec(n, fd);
+	else
+		ft_putnbr_fd_rec((long)n, fd);
 }
