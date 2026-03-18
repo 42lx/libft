@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 23:30:45 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/15 16:09:29 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/18 13:26:16 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -23,19 +23,10 @@ static size_t	ft_strnlen(const char *s, size_t maxlen)
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	char		*d;
-	const char	*s;
 	size_t		dlen;
 
 	dlen = ft_strnlen(dst, dstsize);
 	if (dlen == dstsize)
 		return (dstsize + ft_strlen(src));
-	d = dst + dlen;
-	s = src;
-	while (dstsize-- > dlen + 1 && *s)
-		*d++ = *s++;
-	*d = '\0';
-	while (*s)
-		s++;
-	return (dlen + (s - src));
+	return (dlen + ft_strlcpy(dst + dlen, src, dstsize - dlen));
 }
