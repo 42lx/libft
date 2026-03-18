@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:18:10 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/11 18:49:52 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/18 12:44:26 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -21,8 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 		if (*p == (char)c)
 			return ((char *)p);
 		if (p == s)
-			break ;
+			return (NULL);
 		p--;
 	}
-	return (NULL);
 }
