@@ -16,7 +16,7 @@ Accumulates down to avoid integer overflow in case of `INT_MIN`. It doesn't norm
 #### ft_lst*
 No check for `if (!lst)`, but `if (!*lst)` is checked sometimes. Why? That's because `lst = NULL` is invalid use of the function. Same way none of the libc functions do `NULL` checks on arguments, because it's responsibility of the caller to not provide invalid values. At the same time, `*lst = NULL` is a valid case of an empty linked list which the functions need to handle.
 #### ft_lstmap
-A temporary variable is used to store `content` in case `f` uses `malloc` (then `del` should `free` it).
+A temporary variable is used to store `content` in case `f` uses `malloc` (then `del` should `free` it). `tail` tracks the last node to append in O(1) instead of traversing the list with `ft_lstlast` on every iteration.
 
 ## Instructions
 
