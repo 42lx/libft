@@ -6,22 +6,22 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:23:45 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/02 15:15:38 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/19 20:42:36 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned char	uc1;
-	unsigned char	uc2;
+	unsigned char	c1;
+	unsigned char	c2;
 
 	while (n-- && (*s1 || *s2))
 	{
-		uc1 = *s1++;
-		uc2 = *s2++;
-		if (uc1 != uc2)
-			return (uc1 - uc2);
+		c1 = *s1++;
+		c2 = *s2++;
+		if (c1 != c2)
+			return (c1 - c2);
 	}
 	return (0);
 }

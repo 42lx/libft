@@ -6,16 +6,16 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 15:32:01 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/18 04:00:28 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/19 20:43:14 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static void	ft_putnbr_fd_rec(long ln, int fd)
+static void	ft_putnbr_fd_rec(long n, int fd)
 {
-	if (ln >= 10)
-		ft_putnbr_fd_rec(ln / 10, fd);
-	ft_putchar_fd(ln % 10 + '0', fd);
+	if (n >= 10)
+		ft_putnbr_fd_rec(n / 10, fd);
+	ft_putchar_fd(n % 10 + '0', fd);
 }
 
 void	ft_putnbr_fd(int n, int fd)
