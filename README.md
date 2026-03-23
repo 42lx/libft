@@ -8,7 +8,7 @@ Libft is a custom C library that reimplements several standard libc functions an
 #### ft_atoi
 Accumulates down to avoid integer overflow in case of `INT_MIN`. It doesn't normally cause errors since most compilers wrap around value (e.g. `INT_MAX + 1` becomes `INT_MIN` which is exactly the behavior needed), but integer overflow is officially UB, so wraparound cannot be depended on (read [here](https://www.airs.com/blog/archives/120) why). Compile with `-ftrapv` to check for overflows.
 #### ft_calloc
-Uses `(size_t)-1` instead of `SIZE_MAX` for C89 compliance — the subject forbids `restrict` because it's a C99 feature, implying C99+ features are all forbidden (it's not fully clear).
+Uses `(size_t)-1` instead of `SIZE_MAX` for C89 compliance — the subject forbids `restrict` because it's a C99 feature, implying C99+ features are all forbidden.
 #### ft_strlcat
 `dst` length is computed with a custom `ft_strnlen` that stops at `dstsize` bytes rather than walking the full string. This mirrors the intent of `strlcat` itself. If `dst` is already longer than `dstsize`, the function should return `dstsize + ft_strlen(src)` without reading past the buffer (read [here](https://linux.die.net/man/3/strlcat) more).
 #### ft_strtrim
