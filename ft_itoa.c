@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 13:22:06 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/19 20:43:03 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/03/23 10:13:26 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -24,7 +24,7 @@ static size_t	ft_ndigits(int n)
 	return (len);
 }
 
-static void	ft_itoa_rec(long n, char *end)
+static void	ft_itoa_rec(unsigned long n, char *end)
 {
 	if (n >= 10)
 		ft_itoa_rec(n / 10, end - 1);
@@ -45,10 +45,10 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		*res = '-';
-		ft_itoa_rec(-(long)n, p - 1);
+		ft_itoa_rec(-(unsigned long)n, p - 1);
 	}
 	else
-		ft_itoa_rec((long)n, p - 1);
+		ft_itoa_rec((unsigned long)n, p - 1);
 	*p = '\0';
 	return (res);
 }
