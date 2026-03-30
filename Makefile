@@ -47,6 +47,7 @@ SRCS		:= ft_isalpha.c \
 			   ft_lstiter.c \
 			   ft_lstmap.c
 OBJS		:= $(SRCS:.c=.o)
+HDRS		:= libft.h
 
 .PHONY: all clean fclean re
 
@@ -55,7 +56,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-%.o: %.c
+%.o: %.c $(HDRS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -64,4 +65,5 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean all
+re: fclean
+	$(MAKE) all
