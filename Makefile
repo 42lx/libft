@@ -7,6 +7,9 @@
 NAME		:= libft.a
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
+AR			:= ar
+ARFLAGS		:= rcs
+RM			:= rm -f
 
 # --------------------------------- Sources ---------------------------------- #
 
@@ -63,7 +66,7 @@ HDRS		:= libft.h
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 %.o: %.c $(HDRS)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -71,10 +74,10 @@ $(NAME): $(OBJS)
 # --------------------------------- Clean ------------------------------------ #
 
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean
 	$(MAKE) all
