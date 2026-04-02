@@ -18,7 +18,7 @@ Uses `(size_t)-1` instead of `SIZE_MAX` for C89 compliance — the subject forbi
 #### ft_lst*
 No check for `if (!lst)`, but `if (!*lst)` is checked sometimes. Why? That's because `lst = NULL` is invalid use of the function. Same way none of the libc functions do `NULL` checks on arguments, because it's responsibility of the caller to not provide invalid values. At the same time, `*lst = NULL` is a valid case of an empty linked list which the functions need to handle.
 #### ft_lstmap
-A temporary variable is used to store `content` in case `f` uses `malloc` (then `del` should `free` it). `tail` tracks the last node to append in O(1) instead of traversing the list with `ft_lstlast` on every iteration.
+A temporary variable is used to store `content` in case `f` uses `malloc` (then `del` should `free` it). Also, `tail` tracks the last node to append in O(1) instead of traversing the list with `ft_lstlast` on every iteration.
 
 ## Instructions
 
@@ -42,12 +42,13 @@ Command | Description
 
 ### References
 
-* `man` pages.
-* Peer discussions.
+* `man` pages
+* StackOverflow ([1](https://stackoverflow.com/questions/29714300/what-does-the-rcs-option-in-ar-do), [2](https://stackoverflow.com/questions/57639853/is-comparing-two-pointers-with-undefined-behavior-if-they-are-both-cast-to-an))
+* Peer discussions
 
 ### AI Usage Disclosure
 
 LLMs were used during this project for the following purposes:
 
-* Style guidelines for more idiomatic code.
-* Parts of this readme.
+* Style guidelines for more idiomatic code
+* Parts of this readme
