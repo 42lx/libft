@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:23:45 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/19 20:42:36 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/04/03 19:23:20 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -42,10 +42,10 @@ int	main(void)
 	strlcpy(cmp, "libft", 10);
 	printf("str:\"%s\"; std:%d; ft:%d\n", cmp, strncmp(str, cmp, len),
 		ft_strncmp(str, cmp, len));
-	cmp[5] = CHAR_MIN;
+	*(cmp + 5) = CHAR_MIN;
 	printf("str:\"%s\"; std:%d; ft:%d\n", cmp, strncmp(str, cmp, len),
 		ft_strncmp(str, cmp, len));
-	cmp[5] = -42;
+	*(cmp + 5) = -42;
 	printf("str:\"%s\"; std:%d; ft:%d\n", cmp, strncmp(str, cmp, len),
 		ft_strncmp(str, cmp, len));
 }
