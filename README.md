@@ -43,7 +43,7 @@ Command | Description
 ### References
 
 * `man` pages
-* StackOverflow ([1](https://stackoverflow.com/questions/29714300/what-does-the-rcs-option-in-ar-do), [2](https://stackoverflow.com/questions/57639853/is-comparing-two-pointers-with-undefined-behavior-if-they-are-both-cast-to-an))
+* StackOverflow ([1](https://stackoverflow.com/questions/29714300/what-does-the-rcs-option-in-ar-do), [2](https://stackoverflow.com/questions/57639853/is-comparing-two-pointers-with-undefined-behavior-if-they-are-both-cast-to-an), [3](https://stackoverflow.com/questions/9307312/ansi-c-why-character-functions-accept-int-argument-instead-of-char-argument))
 * Peer discussions
 
 ### AI Usage Disclosure
