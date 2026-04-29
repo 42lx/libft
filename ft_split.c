@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 10:54:13 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/18 12:55:53 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/04/29 01:48:08 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -28,9 +28,9 @@ static int	ft_nwords(const char *s, char c)
 	}
 }
 
-static void	*ft_free_array(void **arr)
+void	*ft_free_array(char **arr)
 {
-	void	**p;
+	char	**p;
 
 	p = arr;
 	while (*p)
@@ -56,7 +56,7 @@ static char	**ft_split_populate(char **res, const char *s, char c)
 			s++;
 		*p = ft_substr(start, 0, s - start);
 		if (!*p)
-			return (ft_free_array((void **)res));
+			return (ft_free_array(res));
 		p++;
 	}
 }
