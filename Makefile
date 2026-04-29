@@ -60,8 +60,7 @@ SRCS		:= ft_isalpha.c \
 			   ft_printf.c \
 			   ft_printf_utils.c \
 			   ft_fmt.c \
-			   get_next_line.c \
-			   get_next_line_utils.c
+			   get_next_line.c
 OBJS		:= $(SRCS:.c=.o)
 HDRS		:= libft.h
 

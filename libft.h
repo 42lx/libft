@@ -6,11 +6,15 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:29:46 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/04/29 19:29:31 by mleitao          ###   ########.fr       */
+/*   Updated: 2026/04/29 20:28:05 by mleitao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 256
+# endif
 
 # include <limits.h>
 # include <stddef.h>
