@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:29:46 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/04/29 14:20:57 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/04/29 19:29:31 by mleitao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -76,5 +76,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 int					ft_printf(const char *f, ...);
 int					ft_dprintf(int fd, const char *f, ...);
 int					ft_asprintf(char **ret, const char *f, ...);
+
+char				*get_next_line(int fd);
 
 #endif
