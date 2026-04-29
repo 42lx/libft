@@ -6,15 +6,15 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 13:05:37 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/03/17 13:24:43 by ohaponiu         ###   ########.fr       */
+/*   Updated: 2026/04/29 14:21:08 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *node)
 {
 	if (!*lst)
-		*lst = new;
+		*lst = node;
 	else
-		ft_lstlast(*lst)->next = new;
+		ft_lstlast(*lst)->next = node;
 }

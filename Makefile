@@ -56,7 +56,10 @@ SRCS		:= ft_isalpha.c \
 			   ft_lstdelone.c \
 			   ft_lstclear.c \
 			   ft_lstiter.c \
-			   ft_lstmap.c
+			   ft_lstmap.c \
+			   ft_printf.c \
+			   ft_printf_utils.c \
+			   ft_fmt.c
 OBJS		:= $(SRCS:.c=.o)
 HDRS		:= libft.h
 
