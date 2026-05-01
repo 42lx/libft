@@ -6,7 +6,7 @@
 /*   By: ohaponiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:29:46 by ohaponiu          #+#    #+#             */
-/*   Updated: 2026/04/29 20:28:05 by mleitao          ###   ########.fr       */
+/*   Updated: 2026/05/01 16:34:05 by ohaponiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -82,5 +82,7 @@ int					ft_dprintf(int fd, const char *f, ...);
 int					ft_asprintf(char **ret, const char *f, ...);
 
 char				*get_next_line(int fd);
+
+int					ft_sqrt(int n);
 
 #endif
